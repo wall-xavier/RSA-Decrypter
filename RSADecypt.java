@@ -20,11 +20,20 @@ public class RSADecypt {
             C[i] = message.modPow(BigInteger.valueOf(e), N);
         }
         
-        System.out.println("This is the encrypted message:\n----------------------------------------\n");
+        System.out.println("This is the encrypted message as Characters:\n----------------------------------------\n");
         
         for (i = 0; i < C.length; i++) {
-            System.out.print(C[i] + ", ");
+	    int charInt = C[i].intValue() % 255;
+            System.out.print((char)charInt + ", ");
         }
+
+	System.out.println("\n\nThis is the encrypted input in integer unicode form:\n----------------------------------------\n");
+
+	for (i = 0; i < C.length; i++){
+
+	    System.out.print(C[i].mod(BigInteger.valueOf(255)) + ", ");
+
+	}
         
         // Decryption
        
@@ -85,5 +94,6 @@ public class RSADecypt {
             System.out.print((char)decryptedM[i]);
         }
         
+	System.out.println();
     }
 }
