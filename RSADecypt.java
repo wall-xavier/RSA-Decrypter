@@ -23,7 +23,7 @@ public class RSADecypt {
         System.out.println("This is the encrypted message as Characters:\n----------------------------------------\n");
         
         for (i = 0; i < C.length; i++) {
-	    int charInt = C[i].intValue() % 255;
+	    int charInt = C[i].intValue() % 256;
             System.out.print((char)charInt + ", ");
         }
 
